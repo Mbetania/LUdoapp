@@ -6,7 +6,7 @@ export const NavOnboarding = ({client}) => {
 return (
     <main className='w-100 h-100 row '>
         <Navigation client={client}/>
-        <section className={`col-8  mt-5`}>
+        <section className={`col-8  outlet-onboarding`}>
             <Alerts/>
             <Outlet/>
         </section>

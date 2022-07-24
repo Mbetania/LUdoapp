@@ -3,12 +3,12 @@ import { useState } from 'react'
 import { useAlertStore } from '../../store'
 
 export const useLogin = () => {
-    const [body, setBody] = useState()
+    const [body, setBody] = useState(initialBody)
     const setAlert = useAlertStore(state=>state.setAlert)
 
     const validateForm= () =>{
-        const {userId, companyId, apiKey, apiSecret} = body
-        if(userId && companyId && apiKey && apiSecret){
+        const { userId, companyId, apiKey, apiSecret } = body
+        if( userId && companyId && apiKey && apiSecret ){
             return true
         }else{
             return false
@@ -19,9 +19,9 @@ export const useLogin = () => {
         e.preventDefault()
         console.log(body)
         if( validateForm() ){
-            setAlert({success:true, message:'Se ha verificado con Éxito'})
+            setAlert({success:true, message:'Se ha verificado con éxito'})
         }else{
-            setAlert({success:false, message: 'Complete todos los campos'})
+            setAlert({success:false, message: ' Complete todos los campos'})
         }
     }
     const onChange=(e)=>{
@@ -34,4 +34,11 @@ export const useLogin = () => {
         onSubmit,
         onChange
     }
+}
+
+const initialBody = {
+    userId: '',
+    companyId:'',
+    apiSecret:'',
+    apiKey:'',
 }

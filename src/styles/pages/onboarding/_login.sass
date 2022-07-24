@@ -1,2 +1,20 @@
 section
     &#onboarding-login
+        article
+            .account-build
+                font-size: 12px
+                a
+                    text-decoration: underline
+                    color: $link
+                    &:hover
+                        transition: .5s,
+                        text-decoration: none
+                        cursor: pointer
+                        color: $linkhover
+
+@media screen and ( min-height: 800px )
+    #onboarding-login
+        article
+            .account-build
+                font-size: 18px
+    

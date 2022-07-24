@@ -20,6 +20,7 @@ export const Login = () => {
                     <InputText onChange={onChange} textProps={apiKey}/>
                     <InputText onChange={onChange} textProps={apiSecret}/>
                     <button type='submit' className='mt-5 w-50 py-2 btn btn-primary'>Ingresar</button>
+                    <span className='account-build mt-3'>Si todavía no la tienes <Link to='#'>Crea tu cuenta </Link></span>
                 </form>
             </article>
         </section>

@@ -1,11 +1,28 @@
 import React from 'react'
 import { useState } from 'react'
+import { useAlertStore } from '../../store'
 
 export const useLogin = () => {
     const [body, setBody] = useState()
+    const setAlert = useAlertStore(state=>state.setAlert)
+
+    const validateForm= () =>{
+        const {userId, companyId, apiKey, apiSecret} = body
+        if(userId && companyId && apiKey && apiSecret){
+            return true
+        }else{
+            return false
+        }
+    }
+
     const onSubmit = (e) => {
         e.preventDefault()
         console.log(body)
+        if( validateForm() ){
+            setAlert({success:true, message:'Se ha verificado con Éxito'})
+        }else{
+            setAlert({success:false, message: 'Complete todos los campos'})
+        }
     }
     const onChange=(e)=>{
         const { value, id } = e.target

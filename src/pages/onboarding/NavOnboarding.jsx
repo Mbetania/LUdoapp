@@ -1,11 +1,13 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
+import { Alerts } from '../../components/Alerts'
 
 export const NavOnboarding = ({client}) => {
 return (
     <main className='w-100 h-100 row '>
         <Navigation client={client}/>
         <section className={`col-8  mt-5`}>
+            <Alerts/>
             <Outlet/>
         </section>
     </main>

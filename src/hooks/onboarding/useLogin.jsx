@@ -4,6 +4,7 @@ import { useAlertStore } from '../../store'
 
 export const useLogin = () => {
     const [body, setBody] = useState(initialBody)
+    const [isLoading, setIsLoading] = useState(false)
     const setAlert = useAlertStore(state=>state.setAlert)
 
     const validateForm= () =>{
@@ -32,7 +33,9 @@ export const useLogin = () => {
     
     return {
         onSubmit,
-        onChange
+        onChange,
+        isLoading,
+        body
     }
 }
 

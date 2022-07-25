@@ -4,8 +4,8 @@ import { InputText } from '../../components/form/Inputs'
 import { useLogin } from '../../hooks/onboarding/useLogin'
 
 
-export const Login = () => {
-    const {onSubmit, onChange} = useLogin()
+export const Login =() => {
+    const {onSubmit, onChange,isLoading, body } = useLogin()
     return (
         <section id='onboarding-login'>
             <header className='mt-2 mt-xxl-5 d-flex flex-column justify-content-center align-items-center'>
@@ -15,11 +15,27 @@ export const Login = () => {
             </header>
             <article className='d-flex flex-column mt-3 mt-xxl-5 align-items-center'>
                 <form onSubmit={onSubmit} className='d-flex flex-column align-items-center w-50'>
-                    <InputText onChange={onChange} textProps={userIdProps} />
-                    <InputText onChange={onChange} textProps={companyIdProps}/>
-                    <InputText onChange={onChange} textProps={apiKey}/>
-                    <InputText onChange={onChange} textProps={apiSecret}/>
-                    <button type='submit' className='mt-5 w-60 py-2 btn btn-primary'>Ingresar</button>
+                    <InputText 
+                    isDisabled={isLoading} 
+                    value={body.userId} 
+                    onChange={onChange} 
+                    textProps={userIdProps} />
+                    <InputText 
+                    isDisabled={isLoading} 
+                    value={body.companyId}  
+                    onChange={onChange} 
+                    textProps={companyIdProps}/>
+                    <InputText 
+                    isDisabled={isLoading} 
+                    value={body.apiKey}  
+                    onChange={onChange} 
+                    textProps={apiKey}/>
+                    <InputText 
+                    isDisabled={isLoading} 
+                    value={body.apiSecret}  
+                    onChange={onChange} 
+                    textProps={apiSecret}/>
+                    <button disabled={isLoading} type='submit' className='mt-5 w-60 py-2 btn btn-primary btn-ludo'>Ingresar</button>
                     <span className='account-build mt-3'>Si todavía no la tienes <Link to='#'>crea tu cuenta </Link></span>
                 </form>
             </article>

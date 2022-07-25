@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
+import { postLogin } from '../../services/onboarding.services'
 import { useAlertStore } from '../../store'
 
 export const useLogin = () => {
@@ -16,11 +17,18 @@ export const useLogin = () => {
         }
     }
 
-    const onSubmit = (e) => {
+    const onSubmit = async (e) => {
         e.preventDefault()
         console.log(body)
         if( validateForm() ){
-            setAlert({success:true, message:'Se ha verificado con éxito'})
+            try {
+                const result = await postLogin(body, 'Betania')
+                const {message, success} = result.data
+                console.log(result.data)
+                setAlert({message: message, success:success})
+            } catch (error) {
+                setAlert({message: 'Ocurrió un error al conectar.', success:false})
+            }
         }else{
             setAlert({success:false, message: ' Complete todos los campos'})
         }

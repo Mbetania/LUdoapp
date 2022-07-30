@@ -1,0 +1,35 @@
+main
+    &#welcome-container
+        section
+            color: $txt-welcome
+            border-radius: .5rem
+            padding: 2rem 6rem
+            h1
+                letter-spacing: 1px
+                font-size: 1.75rem
+                margin-bottom: 3rem
+            ul
+                font-weight: 500
+                padding-left: 5rem
+                li
+                    &::before
+                        content: '\2022'
+                        color: $secondary
+                        font-weight: bold
+                        display: inline-block
+                        width: 1em
+                        margin-left: -1rem
+                    &::after
+                        position: relative
+                        left: -1rem
+                        content: '',
+                        height: 3rem
+                        margin: .15rem 0,
+                        width: .25rem
+                        background-color: $secondary
+                        display: block
+                    font-size: 1.3rem
+                    &:nth-last-child(1) 
+                        &::after
+                            display: none
+                    a 

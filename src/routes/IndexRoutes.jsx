@@ -6,6 +6,7 @@ import { AnimatePresence } from 'framer-motion'
 import { Locations } from '../pages/onboarding/Locations'
 import { NavPanel } from '../pages/panel/NavPanel'
 import { Table } from '../pages/panel/Table'
+import { Welcome } from '../pages/Welcome'
 
 const clientRoutes = 'ludo'
 
@@ -15,6 +16,7 @@ export const IndexRoutes = () => {
       <BrowserRouter>
         <Routes>
           <Route path={`/${clientRoutes}/`} >
+            <Route path='welcome' element={<Welcome client={clientRoutes} />}/>
             <Route path='onboarding' element={<NavOnboarding client={clientRoutes} />}>
               <Route path='login' element={<Login />} />
               <Route path='location' element={<Locations />} />

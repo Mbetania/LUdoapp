@@ -17,7 +17,7 @@ return (
             </ul>
         </section>
         <button className='btn btn-primary p-2-5 w-25 mt-4 mt-xxl-5 btn-ludo col-4'>
-            dsfdsfds
+            Ingresar
         </button>
     </main>
 )

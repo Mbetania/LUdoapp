@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react'
+import { useState } from 'react'
 import { getStores } from '../../services/onboarding.services'
 
 export const useStores = () => {
+    const [body, setBody] = useState()
     useEffect(() => {
         loadInitial()
     }, [])
@@ -9,7 +11,7 @@ export const useStores = () => {
     const loadInitial = async () =>{
         try{
             const res = await getStores()
-            console.log(res)
+            setBody(res.data)
         }
         catch (error){
             console.log(error)
@@ -19,7 +21,13 @@ export const useStores = () => {
         console.log(e)
         e.preventDefault()
     }
+    const onChange=(e)=>{
+        const {} = e.target
+        setBody({...body, isAllActive: !body.isAllActive})
+    }
 return {
     onSubmit,
+    body,
+    onChange
 }
 }

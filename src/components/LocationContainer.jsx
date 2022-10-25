@@ -18,8 +18,14 @@ export const LocationContainer = () => {
 }
 
 const ItemSwitch = ({body}) => {
-    //body.stores[0].tanto
-    // const detailBody = body.stores[0].storeName
+// const {stores} = body
+//     //body.stores[0].tanto
+//     const detailBody = stores.map((item) =>{
+//         return (
+//             console.log(item)
+
+//         )
+//     })
     return (
         
         <li className='d-flex flex-row p-3 justify-content-evenly '>
